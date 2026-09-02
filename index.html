@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>516 Beaumont Rd — Broker Price Opinion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --space-1: .25rem; --space-2: .5rem; --space-3: .75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem;
+      --color-bg:#ffffff; --color-surface:#ffffff; --color-surface-2:#eaf2ed; --color-border:#e1ded6; --color-text:#333333; --color-text-muted:#6b6f6c;
+      --color-primary:#17613c; --color-primary-2:#d9ebe1; --color-band:#a3701f; --color-band-soft:#f2e6d3;
+      --color-alert:#a3341f; --color-alert-soft:#f2dcd3;
+      --radius-md:.5rem; --radius-lg:.9rem; --radius-xl:1.2rem;
+      --shadow-sm:0 1px 2px rgba(0,0,0,.06); --shadow-md:0 8px 24px rgba(0,0,0,.08);
+      --font-display:'Outfit', system-ui, sans-serif; --font-body:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth} body{font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background:var(--color-bg);line-height:1.6}
+    a{color:var(--color-primary)} .container{max-width:1100px;margin:0 auto;padding:0 var(--space-4)}
+    .topbar{position:sticky;top:0;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:2px solid var(--color-primary);z-index:20}
+    .topbar-inner{display:flex;justify-content:space-between;align-items:center;padding:var(--space-3) 0;flex-wrap:wrap;gap:var(--space-2)}
+    .logo{display:flex;gap:var(--space-3);align-items:center;font-weight:600}
+    .logo img{height:42px;width:auto;display:block}
+    .hero{padding:var(--space-16) 0 var(--space-12)}
+    .eyebrow{font-size:var(--text-sm);letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:var(--space-3)}
+    h1,h2,h3,h4{font-family:var(--font-display);line-height:1.12;font-weight:700;color:var(--color-primary)}
+    h1{font-size:var(--text-2xl);max-width:32ch;margin-bottom:var(--space-4)} h2{font-size:var(--text-xl);margin-bottom:var(--space-5)} h3{font-size:var(--text-lg);margin-bottom:var(--space-3)} h4{font-size:var(--text-base);margin-bottom:var(--space-2)}
+    .lede{max-width:72ch;color:var(--color-text-muted)}
+    .grid{display:grid;grid-template-columns:1.3fr .9fr;gap:var(--space-8);align-items:start}
+    .card{background:var(--color-surface);border:1px solid rgba(31,35,32,.12);border-radius:var(--radius-xl);padding:var(--space-6);box-shadow:var(--shadow-sm)}
+    .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4);margin-top:var(--space-8)}
+    .stat{background:var(--color-surface-2);border-radius:var(--radius-lg);padding:var(--space-4)} .stat-label{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-muted)} .stat-value{font-size:var(--text-lg);font-weight:700;margin-top:.2rem;color:var(--color-primary)}
+    .stat-alert .stat-value{color:var(--color-alert)}
+    section{padding:var(--space-10) 0}
+    section.alt{background:var(--color-surface-2)}
+    .table{width:100%;border-collapse:collapse;font-size:var(--text-sm)} .table th,.table td{padding:.85rem .6rem;border-bottom:1px solid rgba(31,35,32,.1);text-align:left;vertical-align:top} .table th{color:var(--color-text-muted);font-weight:600;white-space:nowrap}
+    .table-wrap{overflow-x:auto}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-8)}
+    .prop-card + .prop-card{margin-top:var(--space-6)}
+    .spec-list{display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-4)}
+    .spec-row{padding-bottom:var(--space-3);border-bottom:1px solid rgba(31,35,32,.1)}
+    .spec-row:last-child{border-bottom:none;padding-bottom:0}
+    .spec-label{font-size:var(--text-xs);color:var(--color-text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:.25rem}
+    .spec-value{font-size:var(--text-sm);line-height:1.55}
+    .three-col{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4)}
+    .pill{display:inline-block;background:var(--color-primary-2);color:var(--color-primary);padding:.35rem .7rem;border-radius:999px;font-size:var(--text-xs);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .pill-band{display:inline-block;background:var(--color-band-soft);color:var(--color-band);padding:.35rem .7rem;border-radius:999px;font-size:var(--text-xs);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .pill-alert{display:inline-block;background:var(--color-alert-soft);color:var(--color-alert);padding:.35rem .7rem;border-radius:999px;font-size:var(--text-xs);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .pill-outline{display:inline-block;border:1px solid rgba(31,35,32,.18);color:var(--color-text-muted);padding:.3rem .65rem;border-radius:999px;font-size:var(--text-xs);font-weight:600;margin:.15rem .25rem .15rem 0}
+    .hero-photo{width:100%;border-radius:var(--radius-xl);box-shadow:var(--shadow-md);display:block;margin-bottom:var(--space-6);object-fit:cover;max-height:520px}
+    .photo-sm{width:100%;border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);display:block;margin-bottom:var(--space-4);object-fit:cover;max-height:260px}
+    .note{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-4)}
+    footer{padding:var(--space-10) 0;background:var(--color-primary);color:#ffffff;font-size:var(--text-sm)}
+    .footer-inner{display:flex;align-items:center;gap:var(--space-6);flex-wrap:wrap}
+    .footer-logo{height:36px;width:auto;filter:brightness(0) invert(1)}
+    .disclaimer{background:var(--color-surface-2);border-radius:var(--radius-lg);padding:var(--space-5);font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-6)}
+    .prop-divider{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-4) 0 var(--space-6)}
+    .prop-divider .badge{background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:700;font-size:var(--text-xs);letter-spacing:.06em;text-transform:uppercase;padding:.4rem .85rem;border-radius:999px;white-space:nowrap}
+    .prop-divider .badge.two{background:var(--color-band)}
+    .prop-divider hr{flex:1;border:none;border-top:1px solid rgba(31,35,32,.15)}
+    .terms-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6)}
+    @media (max-width: 820px){.grid,.two-col,.terms-grid,.three-col{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}}
+    .btn-print{display:inline-flex;align-items:center;gap:.5rem;background:var(--color-primary);color:#ffffff;border:none;padding:.55rem 1.1rem;border-radius:999px;font-family:var(--font-body);font-weight:600;font-size:var(--text-xs);letter-spacing:.02em;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .15s ease}
+    .btn-print:hover{background:#0f4a2d}
+    .btn-print svg{width:15px;height:15px;fill:currentColor;flex:none}
+    .topbar-actions{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
+    @media print {
+      .no-print{display:none !important}
+      *{-webkit-print-color-adjust:exact;print-color-adjust:exact;color-adjust:exact}
+      html,body{font-size:10.5pt;line-height:1.45}
+      .topbar{position:static;backdrop-filter:none;box-shadow:none;border-bottom:2px solid var(--color-primary)}
+      .hero{padding:14pt 0 10pt}
+      section{padding:12pt 0}
+      .grid,.two-col,.terms-grid,.three-col{grid-template-columns:1fr;gap:10pt}
+      .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8pt}
+      .hero-photo{max-height:260pt;box-shadow:none}
+      .photo-sm{max-height:150pt;box-shadow:none}
+      .prop-card + .prop-card{margin-top:10pt}
+      .spec-list{gap:6pt;margin-top:6pt}
+      .spec-row{padding-bottom:5pt}
+      .spec-label{font-size:7.5pt}
+      .spec-value{font-size:9pt;line-height:1.4}
+      h1{font-size:19pt;margin-bottom:8pt}
+      h2{font-size:14.5pt;margin-bottom:8pt}
+      h3{font-size:12pt;margin-bottom:6pt}
+      h4{font-size:10.5pt;margin-bottom:4pt}
+      .card{box-shadow:none;border:1px solid #d7d3c8;padding:10pt}
+      .stat{page-break-inside:avoid}
+      table{font-size:9pt}
+      tr{page-break-inside:avoid}
+      .comps-table{table-layout:fixed;width:100%}
+      .comps-table th,.comps-table td{white-space:normal;word-wrap:break-word;overflow-wrap:break-word;font-size:6.6pt;line-height:1.35;padding:.3rem .2rem}
+      .adj-table{table-layout:fixed;width:100%}
+      .adj-table th,.adj-table td{white-space:normal;word-wrap:break-word;overflow-wrap:break-word;font-size:7.1pt;line-height:1.35;padding:.3rem .2rem}
+      .adj-table th:nth-child(1),.adj-table td:nth-child(1){width:16%}
+      .adj-table th:nth-child(2),.adj-table td:nth-child(2){width:10%}
+      .adj-table th:nth-child(3),.adj-table td:nth-child(3){width:8%}
+      .adj-table th:nth-child(4),.adj-table td:nth-child(4){width:56%}
+      .adj-table th:nth-child(5),.adj-table td:nth-child(5){width:10%}
+      .noi-table{table-layout:fixed;width:100%}
+      .noi-table th,.noi-table td{white-space:normal;word-wrap:break-word;overflow-wrap:break-word;font-size:7.6pt;line-height:1.35;padding:.3rem .2rem}
+      .noi-table th:nth-child(1),.noi-table td:nth-child(1){width:46%}
+      .noi-table th:nth-child(2),.noi-table td:nth-child(2){width:27%}
+      .noi-table th:nth-child(3),.noi-table td:nth-child(3){width:27%}
+      .table-wrap{overflow-x:visible}
+      h2,h3,h4{page-break-after:avoid}
+      .prop-divider{page-break-after:avoid}
+      footer{background:var(--color-primary) !important;color:#ffffff !important;padding:10pt 0}
+      a{color:var(--color-primary) !important;text-decoration:none}
+      @page{margin:0.55in}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="logo">
+        <img src="assets/gm-logo.svg" alt="Grant-Murray Real Estate" />
+      </div>
+      <div class="topbar-actions">
+        <div class="pill">Sale BPO &middot; Fully Vacant</div>
+        <button class="btn-print no-print" type="button" onclick="window.print()">
+          <svg viewBox="0 0 24 24"><path d="M6 9V2h12v7h2a2 2 0 0 1 2 2v7h-4v4H6v-4H2v-7a2 2 0 0 1 2-2h2zm2-5v5h8V4H8zm8 14H8v3h8v-3zm2-2h2v-5H4v5h2v-2h12v2z"/></svg>
+          Print / Save as PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Broker Price Opinion &middot; New Listing Valuation (Sale) &middot; Fayetteville, NC</div>
+        <h1>516 Beaumont Rd &mdash; Broker Price Opinion</h1>
+        <p class="lede">516 Beaumont Rd is a <strong>6,456 SF, two-story</strong> Class B medical/office building on a <strong>0.36-acre</strong> lot, built in 2003, zoned OI with an HSPOD overlay, roughly 0.3 miles from Cape Fear Valley Medical Center. The building is <strong>fully vacant</strong> &mdash; formerly a plastic surgery practice &mdash; and currently marketed <em>for lease</em> by Grant-Murray at $19.00/SF/yr NNN. This opinion addresses <strong>sale value only</strong>. Because the property has no in-place income, the <strong>sales comparison approach is primary</strong>, built on seven independently verified Cumberland County closed sales; a <strong>hypothetical pro-forma income approach</strong> is presented only as a secondary cross-check and is clearly disclosed as hypothetical throughout.</p>
+        <img class="hero-photo" src="assets/beaumont_photo.jpg" alt="Front exterior view of the two-story brick medical office building at 516 Beaumont Rd in Fayetteville, NC" />
+        <div class="stats">
+          <div class="stat stat-alert"><div class="stat-label">Recommended list price</div><div class="stat-value">$1,150,000</div></div>
+          <div class="stat"><div class="stat-label">Sales comparison indicated value</div><div class="stat-value">$1,165,700</div></div>
+          <div class="stat"><div class="stat-label">Hypothetical income cross-check</div><div class="stat-value">$1,154,000&ndash;$1,226,600</div></div>
+          <div class="stat"><div class="stat-label">2026 assessed value (reference)</div><div class="stat-value">$988,681</div></div>
+        </div>
+        <p class="note">Full comp research, the adjustment grid, and an explicit reconciliation between the sales comparison and hypothetical income approaches are set out below. This is a broker's opinion of value prepared for marketing purposes, not a certified USPAP appraisal.</p>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container">
+        <h2>Subject property summary</h2>
+        <div class="card prop-card">
+          <div class="pill">Subject &mdash; fully vacant</div>
+          <h3 style="margin-top:.6rem">516 Beaumont Rd, Fayetteville, NC 28304</h3>
+          <div class="spec-list">
+            <div class="spec-row"><div class="spec-label">Owner of record</div><div class="spec-value">Cape Fear Plastic Surgery Properties LLC, PO Box 53726, Fayetteville, NC 28305 &mdash; per <a href="https://taxpwa.co.cumberland.nc.us/camapwa/PropertySummary.aspx?PARCELPK=37041" target="_blank" rel="noopener">Cumberland County CAMA Property Summary</a></div></div>
+            <div class="spec-row"><div class="spec-label">Building &amp; parcel</div><div class="spec-value">Two-story medical office (MDC &mdash; Medical-Office), Class D wood/light-steel frame with brick veneer, Quality C, built 2003, 30% depreciation ("Average" condition), <strong>not sprinklered</strong>. REID 0416978604000 / PIN 0416-97-8604. County-recorded gross leasable area is <strong>6,456 SF</strong> &mdash; 74 SF below the lease brochure's stated 6,530 SF; this report uses the independently sourced county figure throughout. Lot size 0.36 deeded acres. Source: <a href="https://taxpwa.co.cumberland.nc.us/camapwa/BuildingDetails.aspx?PARCELPK=37041&amp;BldgCardNum=1&amp;SectionNum=1" target="_blank" rel="noopener">CAMA Building Summary</a>, <a href="https://taxpwa.co.cumberland.nc.us/camapwa/LandDetails.aspx?PARCELPK=37041" target="_blank" rel="noopener">CAMA Land Summary</a></div></div>
+            <div class="spec-row"><div class="spec-label">Zoning</div><div class="spec-value">OI (Office &amp; Institution) base district with an HSPOD overlay confirmed at the parcel centroid. Source: <a href="https://gis.co.cumberland.nc.us/server/rest/services/Planning/OverlayDists/MapServer/0/query?geometry=-78.933798%2C35.034964&amp;geometryType=esriGeometryPoint&amp;inSR=4326&amp;spatialRel=esriSpatialRelIntersects&amp;outFields=*&amp;returnGeometry=false&amp;f=pjson" target="_blank" rel="noopener">Cumberland County Overlay Districts GIS query</a></div></div>
+            <div class="spec-row"><div class="spec-label">Occupancy</div><div class="spec-value">Fully vacant per client confirmation. Formerly occupied by a plastic surgery practice: main-level waiting room/reception, 2 procedure rooms, 3 exam rooms, lab, private offices, and 3 restrooms; upper level offers 2,700+ SF of open workspace, a kitchenette, and storage &mdash; per the lease marketing brochure (interior description only, not used as comp evidence)</div></div>
+            <div class="spec-row"><div class="spec-label">2026 assessed value</div><div class="spec-value">$988,681 total ($153/SF) &mdash; land $241,688, building $733,880, misc. improvements $13,113. Source: <a href="https://taxpwa.co.cumberland.nc.us/camapwa/PropertySummary.aspx?PARCELPK=37041" target="_blank" rel="noopener">CAMA Property Summary</a></div></div>
+            <div class="spec-row"><div class="spec-label">Sale / transfer history</div><div class="spec-value"><strong>No arm's-length sale of the improved building is on record.</strong> The current owner acquired title via two $0 quitclaim deeds dated 5/20/2003 (Bk 006101/Pg 00251 and 00248), around the time construction was completed. The last money transfer of any kind was the underlying <strong>land</strong> purchase on 10/15/2001 for $137,500 (pre-construction). Source: <a href="https://taxpwa.co.cumberland.nc.us/camapwa/DeedDetails.aspx?PARCELPK=37041" target="_blank" rel="noopener">CAMA Ownership History</a></div></div>
+            <div class="spec-row"><div class="spec-label">Location</div><div class="spec-value">Approximately 0.3 miles from the 38.72-acre Cape Fear Valley Medical Center campus, in the BORDEAUX subdivision (assessor market area VCS 8054, "Cape Center/S to Melrose Rd"). The subject fronts Beaumont Rd, a side street off the Owen Dr medical corridor; the nearest NCDOT count station on Owen Dr (0.26 mi away) recorded <strong>28,500 vehicles/day in 2022</strong> &mdash; a proximity indicator, not frontage traffic on Beaumont Rd itself, which has no count station. Source: <a href="https://services.arcgis.com/NuWFvHYDMVmmxMeM/ArcGIS/rest/services/NCDOT_AADT_Stations/FeatureServer/0/query?where=COUNTY%3D%27CUMBERLAND%27%20AND%20ROUTE%20LIKE%20%27%25OWEN%25%27&amp;outFields=LocationID,ROUTE,LOCATION,AADT_2022&amp;returnGeometry=true&amp;outSR=4326&amp;f=pjson" target="_blank" rel="noopener">NCDOT AADT Stations query</a></div></div>
+          </div>
+        </div>
+        <p class="note">Ownership, building, land, zoning, and traffic data verified against Cumberland County GIS/CAMA records and NCDOT AADT data, pulled 9/2/2026. The subject is currently marketed for lease only; this report values sale of the fee-simple interest in vacant, unleased condition.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Methodology and verification basis</h2>
+        <div class="card">
+          <p style="margin-top:0">Because the building is fully vacant with no in-place rent roll, this BPO relies on the <strong>sales comparison approach as its primary method</strong>. A <strong>hypothetical pro-forma income approach</strong> is presented afterward strictly as a secondary cross-check, built on an assumed (not actual) market rent, and is labeled as hypothetical wherever it appears &mdash; it is never presented as confirmed income.</p>
+          <ul style="margin:0 0 0 1.2rem;padding:0">
+            <li style="margin-bottom:.5rem"><strong>Source of record for comps:</strong> the <a href="https://taxpwa.co.cumberland.nc.us/camapwa/" target="_blank" rel="noopener">Cumberland County CAMA/tax property system</a> and <a href="https://gis.co.cumberland.nc.us/server/rest/services/Tax/Parcels/MapServer/0" target="_blank" rel="noopener">GIS Tax Parcels layer</a>, which publish deed book/page, buyer, sale price, and building area for every parcel; revenue stamps were cross-checked against every recorded price.</li>
+            <li style="margin-bottom:.5rem"><strong>Comps were independently researched</strong>, not taken from the subject's own lease marketing brochure &mdash; every comp below carries its own county-record source link. The brochure's photos and floor plans were used only to describe the subject property, never as comp evidence.</li>
+            <li style="margin-bottom:.5rem">Two flagged transactions in the wider comp screening (a same-day quitclaim/warranty deed pair, and stamps that implied a materially different price than recorded) were <strong>excluded</strong> from the comp set below rather than silently averaged in.</li>
+            <li style="margin-bottom:.5rem">The subject's own $19.00/SF/yr NNN lease ask was independently checked against nearby lease comparables rather than accepted at face value &mdash; see market context below for the honest disclosure of that comparison.</li>
+            <li>Any hypothetical income figure below assumes a lease-up that has not occurred and a market rent that has not been tested by an actual signed lease at the subject; it is disclosed as a cross-check, not a basis for the recommended list price on its own.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container">
+        <h2>Market context</h2>
+        <div class="card">
+          <p style="margin-top:0"><strong>Cap rates.</strong> Fayetteville asking cap rates for office product cluster at <strong>7.6%&ndash;8.3%</strong>, per <a href="https://www.loopnet.com/search/office-buildings/fayetteville-nc/for-sale/" target="_blank" rel="noopener">LoopNet's Fayetteville office market page</a> (7.63% average) and a local Grant-Murray office listing asking an <a href="https://www.loopnet.com/company/grant-murray-real-estate-llc/qevmvdwl/" target="_blank" rel="noopener">8.29% cap</a>. The one local <em>medical</em> asking cap found, <a href="https://www.loopnet.com/Listing/1767-1781-Metromedical-Dr-Fayetteville-NC/38473674/" target="_blank" rel="noopener">6.50% on a 40,816 SF building 100%-leased to Cape Fear Valley Health</a>, reflects hospital-system credit tenancy that does not apply to this vacant, non-credit asset. Nationally, <a href="https://www.cbre.com/insights/figures/q2-2026-us-medical-outpatient-buildings-figures" target="_blank" rel="noopener">CBRE's Q2 2026 U.S. MOB Figures</a> put the average medical outpatient building cap rate at 7.1%, while the <a href="https://www.bouldergroup.com/blog/single-tenant-net-lease-report-for-q2-2026/" target="_blank" rel="noopener">Boulder Group's Q2 2026 net lease report</a> shows single-tenant net-lease office asking at 7.90%, and <a href="https://www.cbre.com/insights/briefs/eacotm-investor-sentiment-improves-even-for-class-b-and-c-offices" target="_blank" rel="noopener">CBRE's Class B/C office cap rate brief</a> notes over 70% of such assets nationally still price at double-digit (&ge;10%) cap rates. Given the subject is vacant, non-credit, small Class B, second-generation medical space, a rate toward the <strong>upper end of the local 7.6%&ndash;8.5% band</strong> is most defensible &mdash; materially above the 6.50% credit-tenant local comp, but below the double-digit national Class B/C distress tier given the subject's reasonable condition (30% depreciation) and strong hospital-adjacent location.</p>
+          <p><strong>Lease rates &mdash; honest disclosure on the $19.00/SF NNN ask.</strong> Fayetteville's average office asking rent is <strong>$21.00/SF</strong> and medical-office average is <strong>&asymp;$22/SF</strong> per <a href="https://www.loopnet.com/search/office-space/fayetteville-nc/for-lease/" target="_blank" rel="noopener">LoopNet</a> and <a href="https://www.loopnet.com/search/medical-offices/fayetteville-nc/for-lease/" target="_blank" rel="noopener">LoopNet medical offices</a>, but those are quoted on mixed lease structures. On an apples-to-apples basis, the two closest true medical comparables near the hospital are <a href="https://www.commercialcafe.com/commercial-property/us/nc/fayetteville/medical-office-building-next-to-cape-fear-valley-medical-center/" target="_blank" rel="noopener">$20.00/SF gross</a> and <a href="https://www.showcase.com/1830-owen-dr-fayetteville-nc-28304/40311492/" target="_blank" rel="noopener">$19.44/SF modified gross</a> &mdash; and the only true <em>NNN</em> comp found nearby, a Grant-Murray-marketed medical/office space, is <a href="https://images1.showcase.com/d2/sNv7-O3zVfP1_aptthGb3Usfnvi2cHwFBN52namdr08/document.pdf" target="_blank" rel="noopener">$14.68/SF NNN</a>. Once the NNN structure is accounted for, the subject's own $19.00/SF NNN ask sits <strong>at or above the top of the local range</strong>, not comfortably within it. Separately, an independent listing aggregator shows this same 6,456 SF space quoted at <a href="https://www.commercialsearch.com/office/us/nc/fayetteville/" target="_blank" rel="noopener">$24.00/SF/YR</a> &mdash; a discrepancy from the brochure's own $19.00 figure worth reconciling with the listing broker, and not relied upon here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Comparable sales</h2>
+        <p class="lede" style="margin-bottom:var(--space-6)">Seven independently verified closed sales of medical-office and Class B office buildings in Fayetteville/Cumberland County, NC (2023&ndash;2026), each confirmed against deed book/page and revenue stamps in the county's CAMA system. No brochure comps were used. Two additional transactions surfaced in the broader screen were excluded for recorded-price/stamp discrepancies and are not included below.</p>
+        <div class="card table-wrap">
+          <table class="table comps-table">
+            <tr><th>Comp</th><th>Sale date</th><th>Price</th><th>Bldg SF</th><th>$/SF</th><th>Notes</th><th>Source</th></tr>
+            <tr><td><strong>1295 Oliver St</strong></td><td>12/04/2025</td><td>$1,100,000</td><td>5,138</td><td>$214.09</td><td>MDC-Medical, Quality C, 1-story, built 1985/eff. 2000, same VCS 8054 as subject, ~0.4 mi away</td><td><a href="https://taxpwa.co.cumberland.nc.us/camapwa/DeedDetails.aspx?PARCELPK=37089" target="_blank" rel="noopener">CAMA</a></td></tr>
+            <tr><td><strong>3526 Village Dr</strong></td><td>10/25/2023</td><td>$1,425,000</td><td>5,920</td><td>$240.71</td><td>MDC-Medical, Quality C+, "GOOD" condition (19% depr.), built 2010; buyer Cumberland County Hospital System (strategic premium)</td><td><a href="https://taxpwa.co.cumberland.nc.us/camapwa/DeedDetails.aspx?PARCELPK=36544" target="_blank" rel="noopener">CAMA</a></td></tr>
+            <tr><td><strong>6201 Raeford Rd</strong></td><td>07/29/2025</td><td>$1,050,000</td><td>5,160</td><td>$203.49</td><td>MDC-Medical, Quality C, steel frame, built 1987/eff. 1996, 42% depreciation</td><td><a href="https://taxpwa.co.cumberland.nc.us/camapwa/DeedDetails.aspx?PARCELPK=15550" target="_blank" rel="noopener">CAMA</a></td></tr>
+            <tr><td><strong>3416 Melrose Rd</strong></td><td>08/19/2025</td><td>$510,000</td><td>2,526</td><td>$201.90</td><td>MDC-Medical, built 1970/eff. 1981, 58% depreciation, same BORDEAUX subdivision as subject; buyer Cumberland County Hospital System</td><td><a href="https://taxpwa.co.cumberland.nc.us/camapwa/DeedDetails.aspx?PARCELPK=36625" target="_blank" rel="noopener">CAMA</a></td></tr>
+            <tr><td><strong>513 Owen Dr</strong></td><td>04/01/2026</td><td>$475,000</td><td>4,537</td><td>$104.69</td><td>MDC-Medical, built 1955/eff. 1980, 59% depreciation &mdash; sets the practical floor for obsolete medical stock in this corridor</td><td><a href="https://taxpwa.co.cumberland.nc.us/camapwa/DeedDetails.aspx?PARCELPK=54274" target="_blank" rel="noopener">CAMA</a></td></tr>
+            <tr><td><strong>2905 Breezewood Ave</strong></td><td>08/13/2024</td><td>$1,000,000</td><td>8,000</td><td>$125.00</td><td>OFC-Office, Quality C+, <strong>2-story</strong>, built 1995, 43% depreciation &mdash; the closest structural (two-story) analogue to the subject</td><td><a href="https://taxpwa.co.cumberland.nc.us/camapwa/DeedDetails.aspx?PARCELPK=58851" target="_blank" rel="noopener">CAMA</a></td></tr>
+            <tr><td><strong>3616 Cape Center Dr</strong></td><td>04/14/2023</td><td>$550,000</td><td>3,145</td><td>$174.88</td><td>MDC-Medical, Quality C, built 1989, 50% depreciation; prior sale $430,000 (01/2019), +27.9% over ~4.2 yrs</td><td><a href="https://taxpwa.co.cumberland.nc.us/camapwa/DeedDetails.aspx?PARCELPK=37062" target="_blank" rel="noopener">CAMA</a></td></tr>
+          </table>
+        </div>
+        <p class="note">All sales verified against Cumberland County CAMA deed records and revenue stamps; none are sourced from marketing brochures. Pulled 9/2/2026.</p>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container">
+        <h2>Adjustment matrix</h2>
+        <p class="lede" style="margin-bottom:var(--space-6)">Each comp is adjusted to the subject's profile: a 6,456 SF, two-story, 2003-built, Quality C medical/office building at 30% depreciation ("Average" condition), 0.3 miles from Cape Fear Valley Medical Center. Adjustments reflect Grant-Murray Real Estate's professional judgment as the prospective listing broker &mdash; this is a broker's opinion, not a certified USPAP appraisal adjustment analysis.</p>
+        <div class="card table-wrap">
+          <table class="table adj-table">
+            <tr><th>Comp property</th><th>Unadj. $/SF</th><th>Net Adj. %</th><th>What was adjusted</th><th>Adj. $/SF</th></tr>
+            <tr><td><strong>1295 Oliver St</strong></td><td>$214.09</td><td>&minus;2%</td><td>Location: same market area as subject, comparable proximity (0%). Size: comp's 5,138 SF is smaller than the subject's 6,456 SF, reversing a modest small-unit premium (&minus;5%). Condition: comp's 34% depreciation is slightly worse than the subject's 30%, a small offset in the subject's favor (+3%).</td><td><strong>$209.81</strong></td></tr>
+            <tr><td><strong>3526 Village Dr</strong></td><td>$240.71</td><td>&minus;20%</td><td>Condition/vintage: comp is newer (2010) and in "GOOD" condition (19% depreciation) versus the subject's 2003 vintage and 30% depreciation (&minus;12%). Buyer type: comp sold to a hospital-system strategic buyer at a premium not available to a vacant, non-credit sale like the subject (&minus;8%). Size: comparable, no adjustment (0%).</td><td><strong>$192.57</strong></td></tr>
+            <tr><td><strong>6201 Raeford Rd</strong></td><td>$203.49</td><td>+8%</td><td>Condition: subject is in noticeably better condition (30% vs. 42% depreciation) (+8%). Size: comp's 5,160 SF is smaller, reversing a small-unit premium (&minus;3%). Location: subject's hospital-adjacent location is superior to the Raeford Rd corridor (+3%).</td><td><strong>$219.77</strong></td></tr>
+            <tr><td><strong>3416 Melrose Rd</strong></td><td>$201.90</td><td>&minus;5%</td><td>Condition: subject is materially better condition (30% vs. 58% depreciation) (+15%). Size: comp's 2,526 SF is far smaller than the subject's 6,456 SF, and small medical suites command a $/SF premium the subject's larger floor plate does not (&minus;15%). Buyer type: strategic hospital-system premium not available to the subject (&minus;5%). Location: same subdivision, no adjustment (0%).</td><td><strong>$191.81</strong></td></tr>
+            <tr><td><strong>513 Owen Dr</strong></td><td>$104.69</td><td>+20%</td><td>Condition: subject is far superior condition (30% vs. 59% depreciation) &mdash; this comp represents the market's floor for obsolete 1950s-vintage medical stock (+25%). Size: comp's 4,537 SF is smaller, reversing a small-unit premium (&minus;5%).</td><td><strong>$125.63</strong></td></tr>
+            <tr><td><strong>2905 Breezewood Ave</strong></td><td>$125.00</td><td>+14%</td><td>Condition: subject is in better condition (30% vs. 43% depreciation) (+8%). Size: comp's 8,000 SF is larger, and larger buildings typically trade at lower $/SF, favoring the smaller subject (+3%). Location: comp is off the hospital corridor; subject's location is superior (+3%).</td><td><strong>$142.50</strong></td></tr>
+            <tr><td><strong>3616 Cape Center Dr</strong></td><td>$174.88</td><td>+4%</td><td>Condition: subject is in better condition (30% vs. 50% depreciation) (+12%). Size: comp's 3,145 SF is smaller, reversing a small-unit premium (&minus;8%).</td><td><strong>$181.88</strong></td></tr>
+          </table>
+        </div>
+        <p class="note">Average of the seven adjusted comps: <strong>$180.56/SF</strong> (range $125.63&ndash;$219.77/SF) &times; 6,456 SF = <strong>$1,165,700</strong> indicated value &mdash; see value analysis below for how this figure is reconciled against the hypothetical income cross-check and translated into a recommended list price.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Value analysis</h2>
+        <div class="card">
+          <p style="margin-top:0"><strong>Sales comparison approach (primary).</strong> The seven adjusted comps above average <strong>$180.56/SF</strong>. Applied to the subject's county-recorded 6,456 SF, this indicates a value of <strong>$1,165,700</strong>. This is the primary approach in this report because the building has no in-place income to capitalize.</p>
+          <p><strong>Hypothetical income approach (secondary cross-check only).</strong> Because the subject is vacant, any income approach must assume a market rent that has not been tested by an actual lease at this property &mdash; it is presented here strictly as a cross-check, not a basis for the recommended price. Two rent scenarios were run at 6,456 SF, each with a 5% vacancy/lease-up allowance and capitalized at 8.0%&ndash;8.5% (the upper end of the locally supportable range, appropriate for this vacant, non-credit asset):</p>
+          <ul style="margin:.5rem 0 0 1.2rem;padding:0">
+            <li style="margin-bottom:.4rem">At the brochure's own <strong>$19.00/SF NNN</strong> ask (flagged above as likely above true market on an apples-to-apples basis): hypothetical stabilized NOI of $116,530.80, capitalized at 8.0%&ndash;8.5%, indicates <strong>$1,371,000&ndash;$1,456,600</strong>.</li>
+            <li>At a more conservative, research-supported <strong>$16.00/SF NNN</strong> (between the $14.68/SF true-NNN comp and the brochure ask): hypothetical stabilized NOI of $98,131.20, capitalized at 8.0%&ndash;8.5%, indicates <strong>$1,154,000&ndash;$1,226,600</strong>.</li>
+          </ul>
+          <p style="margin-top:.75rem">The conservative $16.00/SF scenario brackets the sales-comparison figure closely ($1,154,000&ndash;$1,226,600 versus $1,165,700), reinforcing the sales comparison conclusion. The optimistic $19.00/SF scenario runs materially higher and is given little weight here, since independent research found the true local NNN comp base to be well below the brochure's own asking rate.</p>
+          <p><strong>Recommended list price: $1,150,000</strong> ($178.19/SF) &mdash; set modestly below the $1,165,700 sales-comparison indication to reflect that the subject has no exact vintage/size twin in the comp set, carries no sale history of its own (the last money transfer was a 2001 land purchase), and is not sprinklered. This price sits within, and near the low end of, the range supported by both the sales comparison and the conservative income cross-check.</p>
+          <p class="note" style="margin-top:1.5rem">Reference only: the 2026 assessed value is $988,681 ($153/SF), below this indicated range &mdash; expected, since Cumberland County assessed values are known to lag verified market transactions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container">
+        <h2>Cap rate range supporting this opinion</h2>
+        <div class="card">
+          <p style="margin-top:0">For a vacant, non-credit, small Class B medical/office building in Fayetteville/Cumberland County, the supportable 2026 cap rate range used in the hypothetical income cross-check above is roughly <strong>8.0% to 8.5%</strong> &mdash; toward the upper end of the local market band.</p>
+          <p>Local benchmarks: the <a href="https://www.loopnet.com/search/office-buildings/fayetteville-nc/for-sale/" target="_blank" rel="noopener">Fayetteville office market</a> averages a 7.63% cap rate, with a Grant-Murray office listing asking <a href="https://www.loopnet.com/company/grant-murray-real-estate-llc/qevmvdwl/" target="_blank" rel="noopener">8.29%</a> and the market-wide, all-commercial average at <a href="https://www.loopnet.com/search/location/fayetteville-nc" target="_blank" rel="noopener">6.88%</a>. The only local medical asking cap found, <a href="https://www.loopnet.com/Listing/1767-1781-Metromedical-Dr-Fayetteville-NC/38473674/" target="_blank" rel="noopener">6.50% on a fully hospital-leased building</a>, is not applicable here given the subject's vacant, non-credit status.</p>
+          <p>National benchmarks: <a href="https://www.cbre.com/insights/figures/q2-2026-us-medical-outpatient-buildings-figures" target="_blank" rel="noopener">CBRE's Q2 2026 U.S. MOB Figures</a> report an average medical outpatient building cap rate of 7.1% (record MOB asking rents, average sale price $307/SF versus $196/SF for traditional office). The <a href="https://www.bouldergroup.com/blog/single-tenant-net-lease-report-for-q2-2026/" target="_blank" rel="noopener">Boulder Group's Q2 2026 Net Lease Research Report</a> shows single-tenant net-lease office asking cap rates at 7.90% nationally. <a href="https://www.cbre.com/insights/briefs/eacotm-investor-sentiment-improves-even-for-class-b-and-c-offices" target="_blank" rel="noopener">CBRE's Class B/C office cap rate brief</a> notes that over 70% of Class B/C office assets nationally still price at double-digit (&ge;10%) cap rates, while <a href="https://www.cbre.com/insights/reports/us-cap-rate-survey-h2-2025" target="_blank" rel="noopener">CBRE's H2 2025 U.S. Cap Rate Survey</a> found cap rates broadly steady with most respondents believing they have peaked.</p>
+          <p class="note" style="margin-top:1.5rem">The 8.0%&ndash;8.5% range used above sits above the local market average and well above the credit-tenant medical comp, reflecting the subject's vacant, non-credit position, while staying well below the double-digit distress tier reserved for materially older or lower-quality Class B/C stock &mdash; appropriate given the subject's reasonable condition and strong hospital-adjacent location.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Opinion of value &amp; recommended list price</h2>
+        <div class="card">
+          <p style="margin-top:0">This opinion of sale value rests primarily on the sales comparison approach, cross-checked against a clearly hypothetical income approach.</p>
+          <div class="stats">
+            <div class="stat"><div class="stat-label">Sales comparison indicated value</div><div class="stat-value">$1,165,700</div></div>
+            <div class="stat"><div class="stat-label">Hypothetical income cross-check (conservative)</div><div class="stat-value">$1,154,000&ndash;$1,226,600</div></div>
+            <div class="stat stat-alert"><div class="stat-label">Recommended list price</div><div class="stat-value">$1,150,000</div></div>
+            <div class="stat"><div class="stat-label">2026 assessed value (reference only)</div><div class="stat-value">$988,681</div></div>
+          </div>
+          <p class="note" style="margin-top:1.5rem">Grant-Murray Real Estate recommends an initial asking list price of <strong>$1,150,000</strong> ($178.19/SF) for 516 Beaumont Rd, based primarily on the sales comparison approach and cross-checked against a conservative hypothetical income approach. This is a broker's opinion for marketing purposes, not a certified USPAP appraisal.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container">
+        <h2>Listing / commission terms</h2>
+        <div class="card">
+          <div class="terms-grid">
+            <div>
+              <h4>6% &mdash; co-brokered sale</h4>
+              <p>A 6% commission applies to the gross sale price when the buyer is procured through a cooperating (buyer's-side) broker, split between Grant-Murray Real Estate, LLC as listing broker and the cooperating buyer's broker per standard MLS/commercial co-brokerage practice.</p>
+            </div>
+            <div>
+              <h4>4% &mdash; in-house sale</h4>
+              <p>A 4% commission applies when Grant-Murray Real Estate, LLC procures the buyer directly, with no cooperating buyer's broker involved in the transaction.</p>
+            </div>
+          </div>
+          <p class="note">Listing team: <strong>Patrick Murray, CCIM, SIOR</strong>. Final listing agreement terms, duration, and any marketing-cost provisions are to be set out in a separate written listing agreement between Grant-Murray Real Estate, LLC and Cape Fear Plastic Surgery Properties LLC.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Limitations</h2>
+        <div class="card">
+          <ol style="margin:0 0 0 1.2rem;padding:0">
+            <li style="margin-bottom:.6rem">The county-recorded gross leasable area (6,456 SF) is used throughout this report in place of the lease brochure's stated 6,530 SF (a 74 SF, 1.1% difference); building area is the assessor's recorded figure, not an independent field measurement.</li>
+            <li style="margin-bottom:.6rem"><strong>No arm's-length sale of the improved building has ever occurred.</strong> The current owner took title via two $0 quitclaim deeds in 2003; the only money transfer on record is the 2001 land purchase at $137,500, which predates construction and is not used as a comp for the improved property.</li>
+            <li style="margin-bottom:.6rem">The hypothetical income approach cross-check above assumes a market rent and a stabilized lease-up that have not occurred at the subject; it is disclosed as hypothetical throughout and is not the basis for the recommended list price on its own.</li>
+            <li style="margin-bottom:.6rem">The subject's own $19.00/SF/yr NNN lease ask was found, on an apples-to-apples structural basis, to sit at or above the top of the local medical/office lease range identified in independent research; a downward adjustment was applied in the conservative income cross-check scenario rather than accepting the ask at face value.</li>
+            <li style="margin-bottom:.6rem">An independent listing aggregator (CommercialSearch) shows the same space quoted at $24.00/SF/YR, inconsistent with the brochure's $19.00/SF figure; this discrepancy is disclosed but not relied upon in this valuation.</li>
+            <li style="margin-bottom:.6rem">Two additional transactions surfaced during comp screening (a same-day quitclaim/warranty deed pair at one property, and a recorded price inconsistent with revenue stamps at another) were excluded from the comp set rather than averaged in, since their true consideration could not be confirmed.</li>
+            <li style="margin-bottom:.6rem">No NCDOT traffic count station exists on Beaumont Rd itself; the 28,500 vehicles/day figure cited is from the nearest station on Owen Dr (0.26 miles away) and reflects corridor proximity, not frontage traffic at the subject.</li>
+            <li style="margin-bottom:.6rem">Cap rates are rarely recorded in county deed data; every cap rate cited above comes from a brokerage listing, a third-party marketing offering, or a published survey, and is labeled accordingly.</li>
+            <li>This is a broker's opinion of value for marketing purposes, prepared by Grant-Murray Real Estate, LLC, not a certified USPAP appraisal.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container two-col">
+        <div class="card">
+          <h3>Prepared by</h3>
+          <p><strong>Patrick Murray, CCIM, SIOR</strong><br/>Principal / Broker in Charge<br/>Grant-Murray Real Estate, LLC</p>
+          <p style="margin-top:.75rem">150 N. McPherson Church Rd<br/>Fayetteville, NC 28303</p>
+          <p style="margin-top:.75rem">O: 910.829.1617 &middot; C: 910.861.0449<br/>patrick@grantmurrayre.com<br/><a href="https://www.grantmurrayre.com" target="_blank" rel="noopener">grantmurrayre.com</a></p>
+        </div>
+        <div class="card">
+          <h3>Prepared for</h3>
+          <p><strong>Cape Fear Plastic Surgery Properties LLC</strong><br/>Owner of record, 516 Beaumont Rd<br/>PO Box 53726, Fayetteville, NC 28305</p>
+          <p class="disclaimer">This Broker Price Opinion (BPO) is prepared by Patrick Murray, CCIM, SIOR, of Grant-Murray Real Estate, LLC. It is not an appraisal and does not constitute a certified valuation under USPAP. The value conclusion herein is based primarily on the sales comparison approach, built on comparable sales independently researched by Grant-Murray Real Estate, and cross-checked against a hypothetical income approach clearly disclosed as such throughout. It is subject to further verification, changing market conditions, and additional due diligence.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <img class="footer-logo" src="assets/gm-logo.svg" alt="Grant-Murray Real Estate" />
+      <div>
+        Broker Price Opinion — prepared 9/2/2026.<br/>
+        Prepared by Grant-Murray Real Estate | CCIM | SIOR
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
